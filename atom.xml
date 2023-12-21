@@ -6,7 +6,7 @@
   <link href="https://mylucky.cyou/atom.xml" rel="self"/>
   
   <link href="https://mylucky.cyou/"/>
-  <updated>2023-12-21T08:16:10.133Z</updated>
+  <updated>2023-12-21T08:57:07.905Z</updated>
   <id>https://mylucky.cyou/</id>
   
   <author>
@@ -21,11 +21,24 @@
     <link href="https://mylucky.cyou/post/20231220203547.html"/>
     <id>https://mylucky.cyou/post/20231220203547.html</id>
     <published>2023-12-20T12:35:47.000Z</published>
-    <updated>2023-12-21T08:16:10.133Z</updated>
+    <updated>2023-12-21T08:57:07.905Z</updated>
+    
+    <content type="html"><![CDATA[<p>本博客目前是托管在 Github Pages 上，突发奇想部署一份在私人服务器上，并且两边资源都能够动态访问到。于是了解到几种来分流资源的策略：</p><ul><li>DNS 轮询</li><li>开源平台 Nginx、Apache 等</li><li>各大云商提供的负载器服务等</li><li>CND<br>起初想尝试 Cloudflare 平台的智能 DNS 服务，但是需要付费（$5&#x2F;mo）。于是就想通过 Cloudflare Workers 来尝试一下。</li></ul><h2 id="注册-Cloudflare-账户"><a href="#注册-Cloudflare-账户" class="headerlink" title="注册 Cloudflare 账户"></a>注册 Cloudflare 账户</h2><ol><li>前往 <a href="https://cloudflare.com/">Cloudflare</a> 注册开通账户，并将域名托管至 CF</li><li>添加 CNAME 记录将 <code>aaa.com</code> 解析至 YourGithubRepoName.github.io。这里需要在 Github Pages 仓库中设置自定义域名。<a href="https://docs.github.com/zh/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">具体见</a></li><li>添加 A 记录将 <code>blog.aaa.com</code> 解析至你的服务器真实 IP</li><li>SSL&#x2F;TLS 开启完全严格模式</li><li><strong>(必须)</strong> 开启 DNS 记录中的 Proxy （小橘云）</li></ol><h2 id="创建-Workers"><a href="#创建-Workers" class="headerlink" title="创建 Workers"></a>创建 Workers</h2><ol><li><p>转到 Workers 和 Pages</p></li><li><p>选择 <code>创建应用程序</code></p></li><li><p>贴上以下代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(&#x27;fetch&#x27;, event =&gt; &#123;</span><br><span class="line">  event.respondWith(handleRequest(event.request))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 轮询的目标服务</span><br><span class="line">const TARGETS = [</span><br><span class="line">  &#x27;aaa.com&#x27;,</span><br><span class="line">  &#x27;blog.aaa.com&#x27;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">async function handleRequest(request) &#123;</span><br><span class="line">  const url = new URL(request.url)</span><br><span class="line">  url.hostname = getRandomServer()</span><br><span class="line">  return await fetch(url, request)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 每小时切换不同的目标</span><br><span class="line">function getServerEveryHour() &#123;</span><br><span class="line">  const d = new Date()</span><br><span class="line">  const h = d.getHours()</span><br><span class="line">  return TARGETS[h%TARGETS.length]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 每次都随机目标（要注意目标之间是否有跨域）</span><br><span class="line">function getRandomServer() &#123;</span><br><span class="line">  return TARGETS[Math.floor(Math.random() * TARGETS.length)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>保存并部署</p></li></ol><h2 id="使用-Worker"><a href="#使用-Worker" class="headerlink" title="使用 Worker"></a>使用 Worker</h2><ol><li><p>查看刚刚创建的 Worker，详情页选择触发器</p></li><li><p>在</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">路由</span><br></pre></td></tr></table></figure><p>界面点击</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">添加路由</span><br></pre></td></tr></table></figure><ul><li>路由：可以填 <code>aaa.com</code> ，可以使用通配符。<a href="https://developers.cloudflare.com/workers/configuration/routing/routes/#matching-behavior">具体可见</a></li><li>选择区域：刚才创建的 <code>aaa.com</code></li></ul></li></ol><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>在刚刚创建的 Workers 配置页面顶部右上角点可以编辑并调试、实施预览 JavaScript 代码<br>修改这一段代码来验证分流是否生效：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 轮询的目标服务</span><br><span class="line">const TARGETS = [</span><br><span class="line">  &#x27;bing.com&#x27;,</span><br><span class="line">  &#x27;blog.aaa.com&#x27;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>刷新页面有时你会发现加载到 Bing.com 就说明配置生效了<br>最后验证完记得把地址改回去~</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>想尝试 Cloudflare 平台的 Workers 功能可以试试，以上方式仅图一乐，真正的负载均衡需要考虑更多方方面面的因素：负载均衡策略、扩展性、故障容灾等等等等（我也不会</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;本博客目前是托管在 Github Pages 上，突发奇想部署一份在私人服务器上，并且两边资源都能够动态访问到。于是了解到几种来分流资源的策略：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DNS 轮询&lt;/li&gt;
+&lt;li&gt;开源平台 Nginx、Apache 等&lt;/li&gt;
+&lt;li&gt;各大云商提供</summary>
+      
     
     
     
     
+    <category term="vps" scheme="https://mylucky.cyou/tags/vps/"/>
     
   </entry>
   
