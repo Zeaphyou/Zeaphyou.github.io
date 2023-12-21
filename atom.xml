@@ -6,7 +6,7 @@
   <link href="https://mylucky.cyou/atom.xml" rel="self"/>
   
   <link href="https://mylucky.cyou/"/>
-  <updated>2023-12-19T08:55:51.120Z</updated>
+  <updated>2023-12-20T12:35:47.018Z</updated>
   <id>https://mylucky.cyou/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用Cloudflare Workers进行网站分流负载</title>
+    <link href="https://mylucky.cyou/post/20231220203547.html"/>
+    <id>https://mylucky.cyou/post/20231220203547.html</id>
+    <published>2023-12-20T12:35:47.000Z</published>
+    <updated>2023-12-20T12:35:47.018Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>ZgoCloud Los Angeles Performance VPS - Specials - Starter 简评</title>

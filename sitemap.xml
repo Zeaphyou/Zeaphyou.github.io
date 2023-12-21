@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mylucky.cyou/post/20231220203547.html</loc>
+    
+    <lastmod>2023-12-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mylucky.cyou/post/20231219092306.html</loc>
     
     <lastmod>2023-12-19</lastmod>
@@ -202,7 +211,7 @@
 
   <url>
     <loc>https://mylucky.cyou/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -210,56 +219,56 @@
   
   <url>
     <loc>https://mylucky.cyou/tags/hexo/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/tags/blog/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/tags/vps%E7%AE%80%E8%AF%84/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/tags/vps/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/tags/%E5%BF%83%E6%83%85/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/tags/linux/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/tags/sub-store/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/tags/substore/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -268,21 +277,21 @@
   
   <url>
     <loc>https://mylucky.cyou/categories/hexo%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/categories/vps%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://mylucky.cyou/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</loc>
-    <lastmod>2023-12-19</lastmod>
+    <lastmod>2023-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
