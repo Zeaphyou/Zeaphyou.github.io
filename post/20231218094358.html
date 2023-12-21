@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>你真的需要hexo吗？ | 有幸遇见</title><meta name="author" content="Yeavast"><meta name="copyright" content="Yeavast"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="经过几天的体验，个人认为这只是个适用于开发者群体的博客框架，特别是如果你只想好好写文章更是没有任何理由浪费时间在这玩意上面 举个例子： Hexo 是没有后台管理系统，那么要如何新建一篇文章呢？答案是使用命令： 1hexo new &quot;hi-hexo&quot;  然后 Hexo 会在项目根目录的 source 目录下的 _posts 目录里生成 hi-hexo.md 文件，修改它就是修改新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你真的需要hexo吗？">
+<meta property="og:url" content="https://mylucky.cyou/post/20231218094358.html">
+<meta property="og:site_name" content="有幸遇见">
+<meta property="og:description" content="经过几天的体验，个人认为这只是个适用于开发者群体的博客框架，特别是如果你只想好好写文章更是没有任何理由浪费时间在这玩意上面 举个例子： Hexo 是没有后台管理系统，那么要如何新建一篇文章呢？答案是使用命令： 1hexo new &quot;hi-hexo&quot;  然后 Hexo 会在项目根目录的 source 目录下的 _posts 目录里生成 hi-hexo.md 文件，修改它就是修改新">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mylucky.cyou/img/avatar.jpeg">
+<meta property="article:published_time" content="2023-12-18T01:43:58.000Z">
+<meta property="article:modified_time" content="2023-12-19T08:53:14.065Z">
+<meta property="article:author" content="Yeavast">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mylucky.cyou/img/avatar.jpeg"><link rel="shortcut icon" href="/img/favicon-32-cats.png"><link rel="canonical" href="https://mylucky.cyou/post/20231218094358.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '你真的需要hexo吗？',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-12-19 16:53:14'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background3.css"><link rel="stylesheet" href="/css/background2.css"><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="有幸遇见" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="有幸遇见"><img class="site-icon" src="/img/logo.jpeg"/><span class="site-name">有幸遇见</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">你真的需要hexo吗？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-18T01:43:58.000Z" title="发表于 2023-12-18 09:43:58">2023-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-19T08:53:14.065Z" title="更新于 2023-12-19 16:53:14">2023-12-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/hexo%E6%95%99%E7%A8%8B/">hexo教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="你真的需要hexo吗？"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>经过几天的体验，个人认为这只是个适用于开发者群体的博客框架，特别是如果你只想好好写文章更是没有任何理由浪费时间在这玩意上面</p>
+<p>举个例子： Hexo 是没有后台管理系统，那么要如何新建一篇文章呢？答案是使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;hi-hexo&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后 Hexo 会在项目根目录的 <code>source</code> 目录下的 <code>_posts</code> 目录里生成 <code>hi-hexo.md</code> 文件，修改它就是修改新文章的内容了，那么删除一个文章呢？答案是删除掉这个 Markdown 文件</p>
+<p>Hexo 的基本使用流程是：</p>
+<ol>
+<li>在本地计算机使用命令 (<code>hexo new &lt;文章名&gt;</code>) 生成相应文件，然后使用编辑器在这个文件里写文章；</li>
+<li>在本地计算机使用命令 (<code>hexo server</code>) 运行一个本地 Web 服务器在本地上浏览器打开进行预览，如果修改了主题及站点配置还需要使用命令 (<code>hexo clean</code>) 清除一下缓存，当主题及站点配置稳定不再变更而你又熟悉使用 Markdown 写作后，完全可以忽略这步；</li>
+<li>当觉得可以发布了，在本地计算机使用命令 (<code>hexo generate</code>) 生成静态文件然后部署到远程服务器；</li>
+<li>当然还可以更方便一点，在本地计算机使用命令 (<code>hexo deploy</code> 再配合 <code>-g</code> 选项就可以省略上一步) 从而配合远程部署插件，自动部署静态文件到远程服务器上；</li>
+</ol>
+<p>这套流程对于曾经或正在使用如 WordPress 或 Medium 这样成熟的博客系统的人就已经很窒息了，但别急这还没完…</p>
+<p>体验 Hexo 的过程让我想起几年前曾经体验过的另一款基于 Node.js 的博客平台 Ghost (Ghost 还将自身对标 WordPress 和 Medium)，<strong>当时</strong>上手后发现：没有搜索、没有分类、没有二级导航，甚至官方主题的本地化都懒得做还把后台不支持本地化的说明从文档中删除，当你去看 Ghost 的 Github 你会发现这玩意居然是周更，那年是 2018 年距离 Ghost 在 2013 年发布已经过去 5 年了，都不知道这 5 年内 Ghost 周更更出了个什么，连基础功能都做不好居然还对标 WordPress</p>
+<p>Hexo 的体验类似，搜索、评论等功能都需要额外安装插件来实现。就比如评论功能，Hexo 是没有后端的，但为了评论功能以评论插件之一的 waline 举例，waline 官方文档的快速上手中推荐使用 LeanCloud 作为数据库以及使用 Vercel 部署为服务端…</p>
+<blockquote>
+<p>注意，这里并不是说 waline 不好，waline 是一种外挂形式的插件 (不仅用于 Hexo)，不弄个后端评论数据又怎么妥善处理呢？</p>
+</blockquote>
+<p>但这就是很滑稽的地方，一个没有后端的博客框架为了一个功能搞出两个后端，更不用说如果使用的是适配较好的主题还只是改改主题的配置文件，否则还需要自己去改相关代码。这已经超出非开发者的能力范围了</p>
+<blockquote>
+<p>除此之外就是还有人看中这类框架是可以将页面托管在 Github 节省了部署成本而使用它，但这年头海外的廉价 VPS 简直遍地都是，不过也不能要求所有人都在这件事情上投入资金</p>
+</blockquote>
+<p>另外还想说的是一个很普遍的现象：一个开发者想通过博客来记录自己的工作和学习，然而搞着搞着文章没写几篇，但出于对博客或博客插件的不满意自己动手实现，乃至重构了一遍又一遍…当然个人并不觉得这种将自己所学用于实践有什么不好，<strong>但重点在于你到底是来干嘛的呢？是来写博客还是来造博客的？</strong></p>
+<p>看到这里，你应该对于 Hexo 有一个基本的预期了，那么还想要使用 Hexo 吗？</p>
+<blockquote>
+<p>本文摘抄自花姐的Blog ：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://divineengine.net/article/hexo-quickstart-guide/">《Hexo快速入门》</a>中的片段。</p>
+<p>转摘过来的目的也是这段文字说出了个人的一些感想吧。</p>
+<p>这几天我一直在折腾hexo，从安装到主题，到各种设置，最后发现时间是都耗费在这些东西上面了。</p>
+<p>如同我说群里的小伙伴：hexo安装一天，折腾nginx的ssl配置啥的一天，再折腾插件主题什么的一周到一个月，文章没几篇。</p>
+<p>那么我们搭建blog的目的是什么？只是为了折腾？就跟上面说的，写blog还是造blog？</p>
+</blockquote>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a><a class="post-meta__tags" href="/tags/blog/">blog</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/reward.jpeg" target="_blank"><img class="post-qr-code-img" src="/img/reward.jpeg"/></a><div class="post-qr-code-desc"></div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/20231218105520.html" title="Saltfish(咸鱼)美国SanJose 9929 mini VPS简评"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Saltfish(咸鱼)美国SanJose 9929 mini VPS简评</div></div></a></div><div class="next-post pull-right"><a href="/post/20231216124851.html" title="hexo常用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hexo常用命令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/20231209231814.html" title="Hexo永久链接（Permalinks）生成方式比较"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">Hexo永久链接（Permalinks）生成方式比较</div></div></a></div><div><a href="/post/20231208131919.html" title="hexo 部署"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-08</div><div class="title">hexo 部署</div></div></a></div><div><a href="/post/20231215142215.html" title="hexo下使用Typroa编辑图片路径问题的解决"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-15</div><div class="title">hexo下使用Typroa编辑图片路径问题的解决</div></div></a></div><div><a href="/post/20231216124851.html" title="hexo常用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-16</div><div class="title">hexo常用命令</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yeavast</div><div class="author-info__description">遇见就是最大的幸运</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://t.me/GetMoeCats"><i class="fab fa-telegram"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/getsomecat/GetSomeCats" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:cats@lovelucky.xyz" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://t.me/GetMoeCats" rel="external nofollow noreferrer" target="_blank" title="telegram"><i class="fab fa-telegram" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">遇见就是最大的幸运!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231219092306.html" title="ZgoCloud Los Angeles Performance VPS - Specials - Starter 简评">ZgoCloud Los Angeles Performance VPS - Specials - Starter 简评</a><time datetime="2023-12-19T01:23:06.000Z" title="发表于 2023-12-19 09:23:06">2023-12-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231218170433.html" title="Saltfish (咸鱼) 美国 SanJose CN2 GIA mini VPS 简评">Saltfish (咸鱼) 美国 SanJose CN2 GIA mini VPS 简评</a><time datetime="2023-12-18T09:04:33.000Z" title="发表于 2023-12-18 17:04:33">2023-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231218105520.html" title="Saltfish(咸鱼)美国SanJose 9929 mini VPS简评">Saltfish(咸鱼)美国SanJose 9929 mini VPS简评</a><time datetime="2023-12-18T02:55:20.000Z" title="发表于 2023-12-18 10:55:20">2023-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231218094358.html" title="你真的需要hexo吗？">你真的需要hexo吗？</a><time datetime="2023-12-18T01:43:58.000Z" title="发表于 2023-12-18 09:43:58">2023-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231216124851.html" title="hexo常用命令">hexo常用命令</a><time datetime="2023-12-16T04:48:51.000Z" title="发表于 2023-12-16 12:48:51">2023-12-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yeavast</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'https://mylucky.cyou/post/20231218094358.html'
+    this.page.identifier = '/post/20231218094358.html'
+    this.page.title = '你真的需要hexo吗？'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://mylucky-cyou.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=mylucky-cyou&api_key=ugtEIeL4LDM8C0Y60VoIaqBYty50woWGc4G6sWFZYZ4GLCzxQo8NpbJgcfi3aanz&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Disqus' === 'Disqus' || !false) {
+    if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

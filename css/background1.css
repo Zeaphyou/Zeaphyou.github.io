@@ -1,0 +1,45 @@
+/* 定义 CSS 变量 */
+:root {
+  --getSomeCats-bg-color: rgba(252, 238, 200, 0.2);
+  --getSomeCats-bg-color-dark: rgba(14, 42, 53, 0.2);
+}
+
+/* 文章页面的背景 */
+#post {
+  background: var(--getSomeCats-bg-color) !important ;
+}
+
+/* 首页最近文章的背景 */
+.recent-post-item {
+  background: var(--getSomeCats-bg-color) !important ;
+}
+
+/* 底部背景 */
+#footer {
+  background: var(--getSomeCats-bg-color) !important ;
+}
+
+/* 文章底部相关文章导航背景 */
+.postImgHover .cover,
+#pagination .prev-post .cover,
+#pagination .next-post .cover,
+.relatedPosts > .relatedPosts-list > div .cover {
+  background: var(--getSomeCats-bg-color) !important ;
+}
+
+/* 暗黑模式下对应颜色 */
+[data-theme='dark'] #post {
+  background: var(--getSomeCats-bg-color-dark) !important ;
+}
+
+[data-theme='dark'] .recent-post-item {
+  background: var(--getSomeCats-bg-color-dark) !important ;
+}
+
+[data-theme='dark'] #footer {
+  background: var(--getSomeCats-bg-color-dark) !important ;
+}
+
+[data-theme='dark'] .cover {
+  background: var(--getSomeCats-bg-color-dark) !important ;
+}

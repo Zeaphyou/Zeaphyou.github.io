@@ -1,0 +1,15 @@
+#post {
+  background: rgba(252, 238, 200, 0.2) !important ;
+}
+
+.recent-post-item {
+  background: rgba(252, 238, 200, 0.6) !important ;
+}
+
+[data-theme='dark'] #post {
+  background: rgba(14, 42, 53, 0.2) !important ;
+}
+
+[data-theme='dark'] .recent-post-item {
+  background: rgba(14, 42, 53, 0.6) !important ;
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hexo 部署 | 有幸遇见</title><meta name="author" content="Yeavast"><meta name="copyright" content="Yeavast"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="虽然已经有了一个blog，但是那个是用wordpress部署的，是Lucky费了老大劲，帮了不少忙，但是用起来总觉得太臃肿，WordPress就是这样，功能大而全，你想要的都能实现，但是很难实现，需要的东西太多，Nginx、MySQL什么的一大堆，对于普通的人来说，过程就很复杂了。也试过用ghost来部署，但是感觉部署过程中也是很多问题，而且对新手也不算友好，也一直想试试传说中的hexo，双十一、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo 部署">
+<meta property="og:url" content="https://mylucky.cyou/post/20231208131919.html">
+<meta property="og:site_name" content="有幸遇见">
+<meta property="og:description" content="虽然已经有了一个blog，但是那个是用wordpress部署的，是Lucky费了老大劲，帮了不少忙，但是用起来总觉得太臃肿，WordPress就是这样，功能大而全，你想要的都能实现，但是很难实现，需要的东西太多，Nginx、MySQL什么的一大堆，对于普通的人来说，过程就很复杂了。也试过用ghost来部署，但是感觉部署过程中也是很多问题，而且对新手也不算友好，也一直想试试传说中的hexo，双十一、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mylucky.cyou/img/avatar.jpeg">
+<meta property="article:published_time" content="2023-12-08T05:19:19.000Z">
+<meta property="article:modified_time" content="2023-12-19T08:54:36.950Z">
+<meta property="article:author" content="Yeavast">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mylucky.cyou/img/avatar.jpeg"><link rel="shortcut icon" href="/img/favicon-32-cats.png"><link rel="canonical" href="https://mylucky.cyou/post/20231208131919.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo 部署',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-19 16:54:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background3.css"><link rel="stylesheet" href="/css/background2.css"><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="有幸遇见" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="有幸遇见"><img class="site-icon" src="/img/logo.jpeg"/><span class="site-name">有幸遇见</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">hexo 部署</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-08T05:19:19.000Z" title="发表于 2023-12-08 13:19:19">2023-12-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-19T08:54:36.950Z" title="更新于 2023-12-19 16:54:36">2023-12-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/hexo%E6%95%99%E7%A8%8B/">hexo教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="hexo 部署"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>虽然已经有了一个<a target="_blank" rel="noopener external nofollow noreferrer" href="https://surge.tel/">blog</a>，但是那个是用wordpress部署的，是Lucky费了老大劲，帮了不少忙，但是用起来总觉得太臃肿，WordPress就是这样，功能大而全，你想要的都能实现，但是很难实现，需要的东西太多，Nginx、MySQL什么的一大堆，对于普通的人来说，过程就很复杂了。也试过用ghost来部署，但是感觉部署过程中也是很多问题，而且对新手也不算友好，也一直想试试传说中的hexo，双十一、黑五期间又陆陆续续的入手了一些小鸡，也出了一些，光搭个节点啥的很浪费，于是又捡起之前部署失败无数次的hexo，重新弄了起来，终于算是成功了，于是就有了这篇文章，这个Blog。<br>下面简单的写一下过程：</p>
+<h2 id="需要准备的"><a href="#需要准备的" class="headerlink" title="需要准备的"></a>需要准备的</h2><ul>
+<li>一台VPS</li>
+<li>一个域名，并且域名已经托管到了cloudflare，做好了DNS解析</li>
+<li>MacBook（Windows下应该差不多，但是我没有,就只好以Mac下部署为例了）</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="创建本地目录"><a href="#创建本地目录" class="headerlink" title="创建本地目录"></a>创建本地目录</h3><p>⚠️确保本机的 <strong>Git</strong> 和 <strong>Node.js</strong>已经安装</p>
+<p>在本地建立一个文件夹，取名blog<br>Mac下可以直接在个人文档里面建文件夹（Windows应该同理）<br>打开<strong>终端</strong>，输入：<code>cd blog</code>  进入到blog文件夹</p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br><span class="line"></span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">sudo npm install</span><br><span class="line"></span><br><span class="line">hexo d -fg</span><br><span class="line"></span><br><span class="line">hexo server</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果正常的话，Hexo就已经本地安装完毕，会有提示你打开 <a target="_blank" rel="noopener external nofollow noreferrer" href="http://localhost:4000/">http://localhost:4000</a> 可以在浏览器看到欢迎页面了，以后加了新的文章或者改动之后，直接hexo server就可以在4000端口检测看看效果。不过这时候只是在本地的，接下来是发布到网络上。</p>
+<h2 id="故障排除："><a href="#故障排除：" class="headerlink" title="故障排除："></a>故障排除：</h2><blockquote>
+<p>When running the first command, I encountered error like Error: Cannot find module ‘…. If you face the same thing, try the following link to fix it. <a target="_blank" rel="noopener external nofollow noreferrer" href="https://gist.github.com/DanHerbert/9520689">https://gist.github.com/DanHerbert/9520689</a></p>
+</blockquote>
+<h3 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h3><p>重启机器后hexo和npm都不见了，显示错误如下：</p>
+<p><code>zsh: command not found: npm</code><br><code>zsh: command not found: hexo</code></p>
+<p>执行命令 ls ~&#x2F;.npm 发现执行文件都在此目录下</p>
+<p>解决步骤：</p>
+<ol>
+<li><strong>卸载已经安装的 node, npm, 和 nvm (if exists)</strong></li>
+</ol>
+<p>To completely uninstall node + npm is to do the following:</p>
+<p>go to &#x2F;usr&#x2F;local&#x2F;lib and delete any node and node_modules<br>go to &#x2F;usr&#x2F;local&#x2F;include and delete any node and node_modules directory<br>if you installed with brew install node, then run brew uninstall node in your terminal<br>check your Home directory for any local or lib or include folders, and delete any node or node_modules from there<br>go to &#x2F;usr&#x2F;local&#x2F;bin and delete any node executable</p>
+<blockquote>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://refactor.ghost.io/2016/01/17/how-do-i-completely-uninstall-node-js-and-reinstall-from-beginning-mac-os-x/">http://refactor.ghost.io/2016/01/17/how-do-i-completely-uninstall-node-js-and-reinstall-from-beginning-mac-os-x/</a></p>
+</blockquote>
+<p><code>rm -rf $NVM_DIR ~/.npm ~/.bower</code></p>
+<ol start="2">
+<li><strong>在Terminal运行下列命令来安装nvm</strong></li>
+</ol>
+<blockquote>
+<p>nvm 是Nodejs版本管理器</p>
+</blockquote>
+<p>Please check the official nvm docs for the latest version link.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>安装之后请重启Terminal</p>
+<ol start="3">
+<li><strong>安装切换各版本 node&#x2F;npm</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nvm ls-remote           //查看有哪些版本可供安装</span><br><span class="line"></span><br><span class="line">nvm install stable       //安装最新稳定版本</span><br><span class="line"></span><br><span class="line">nvm install 0.12.7         //这里再安装一个0.12.7版本 并把它设为默认</span><br><span class="line"></span><br><span class="line">nvm alias default 0.12.7</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><strong>使用 .nvmrc 文件配置项目所使用的 node 版本</strong><br>如果你的默认 node 版本（通过 nvm alias 命令设置的）与项目所需的版本不同，则可在项目根目录或其任意父级目录中创建 .nvmrc 文件，在文件中指定使用的 node 版本号，例如：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;项目根目录&gt;            //进入项目根目录</span><br><span class="line"></span><br><span class="line">echo 4 &gt; .nvmrc           //添加 .nvmrc 文件</span><br><span class="line"></span><br><span class="line">nvm use                 //无需指定版本号，会自动使用 .nvmrc 文件中配置的版本</span><br><span class="line"></span><br><span class="line">node -v              //查看 node 是否切换为对应版本</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>其他人遇到的类似问题解决方法:</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://yrom.net/blog/2016/08/10/auto-load-node-on-zsh-startup/">https://yrom.net/blog/2016/08/10/auto-load-node-on-zsh-startup/</a></p>
+<p>在另一台电脑上clone repo之后无法使用hexo</p>
+<p><code>ERROR Local hexo not found in ~/Documents/github/hexo_blog</code></p>
+<p>解决方法：</p>
+<p><code>rm -rf node_modules/ &amp;&amp; npm install</code></p>
+<p><strong>如果你遇到没有包含在那上面的问题，请善用搜索。</strong></p>
+<h2 id="VPS端部署过程"><a href="#VPS端部署过程" class="headerlink" title="VPS端部署过程"></a>VPS端部署过程</h2><p>Hexo的VPS端部署其实很简单，就是简单的建立一个文件夹后，将本地生成的静态网页上去，再使用Nginx 代理即可。</p>
+<ol>
+<li>用ssh工具登录到VPS（推荐<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.termius.com/">termius</a>）</li>
+</ol>
+<p><em>其它一些教程都是推荐新建一个git用户，作为一个常年root登录的用户，当然不会干这种事情了，不然各种权限设置，各种workdir设置的多麻烦。</em></p>
+<ol start="2">
+<li>建立blog文件夹并进入文件夹</li>
+</ol>
+<p><code>mkdir /var/www/blog &amp;&amp; cd /var/www/blog</code></p>
+<ol start="3">
+<li><p>安装Nginx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade -y      //升级更新系统</span><br><span class="line"></span><br><span class="line">apt install nginx                 //安装nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>安装完后输入 <code>nginx -V</code> 若出现版本信息，则安装成功</p>
+</li>
+<li><p>配置Nginx</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/sites-available               //切换目录</span><br><span class="line"></span><br><span class="line">cp default default.bak                  //备份默认配置</span><br><span class="line"></span><br><span class="line">vim default                     //修改配置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>参考配置内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80 default;              //默认监听80端口</span><br><span class="line">    root /var/www/blog;             //网站根目录</span><br><span class="line">    server_name mylucky.cyou, www.mylucky.cyou;  //网址</span><br><span class="line">    access_log  /var/log/nginx/blog_access.log;</span><br><span class="line">    error_log   /var/log/nginx/blog_error.log;</span><br><span class="line">    error_page 404 =  /404.html;</span><br><span class="line"></span><br><span class="line">    location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ &#123;</span><br><span class="line">        root /var/www/blog;</span><br><span class="line">        access_log   off;</span><br><span class="line">        expires      1d;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~* ^.+\.(css|js|txt|xml|swf|wav)$ &#123;</span><br><span class="line">        root /var/www/blog;</span><br><span class="line">        access_log   off;</span><br><span class="line">        expires      10m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root /var/www/blog;</span><br><span class="line">        if (-f $request_filename) &#123;</span><br><span class="line">        rewrite ^/(.*)$  /$1 break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /nginx_status &#123;</span><br><span class="line">        stub_status on;</span><br><span class="line">        access_log off;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>保存退出后，输入<code> nginx -t</code> 测试一下配置，如果没有出错信息则启动nginx</p>
+<p>启动 nginx：</p>
+<p><code>systemctl start nginx</code></p>
+<p>设置开机自动启动：</p>
+<p><code>systemctl enable nginx</code></p>
+<p>查看运行状态：</p>
+<p><code>systemctl status nginx</code></p>
+<p>显示 running 表示成功运行。</p>
+<p>这时候在浏览器里面输入你的域名，就可以看到nginx的欢迎信息了，因为我们还没把本地的hexo的内容上传上来呢。</p>
+<h2 id="配置SSL证书"><a href="#配置SSL证书" class="headerlink" title="配置SSL证书"></a>配置SSL证书</h2><p>出于安全性考虑，一般都会给配置个SSL证书，（你也不想每次打开浏览器，地址栏那里显示个不安全吧）</p>
+<p>这里采用certbot来配置</p>
+<p><code>apt install -y certbot python3-certbot-nginx</code></p>
+<p><code>certbot --nginx</code></p>
+<p>第一次运行这个命令会让你填个邮箱，然后yes，no之后选择你要配置证书之后的域名即可，英语都是比较简单的。</p>
+<p>自动更新证书<br>因为这种免费证书都是有期限的，所以设置一个定时任务来到期自动更新<br>输入：</p>
+<p><code>crontab -e</code></p>
+<p>如果你的小鸡没有crontab，那么输入 ：<code>apt install cron</code> 进行安装</p>
+<p>添加一行：</p>
+<p><code>0 0 1 * * /usr/bin/certbot renew --quiet</code></p>
+<p>如果是采用cloudflare的15年证书，则请按照相应的步骤进行，网络上教程很多，就是一个将证书保存到VPS里面，然后在 nginx 的配置步骤。</p>
+<p>配置完nginx和ssl证书后，我们回到本地，需要将本地用Hexo书写的内容生成静态网页，并且上传到VPS里面呈现出来。</p>
+<h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><p>Hexo常用的有 git hook 和 rsync 两种自动部署解决方案</p>
+<p>在我们创建的博客目录下执行 hexo generate 后，hexo会将我们编辑的markdown博客自动生成静态的网页，而生成的文件就存储在 public 文件夹中，这其中的每一个html文件都是我们之后在网页中查看博客时候加载的对应文件，而我们在执行 hexo deploy 时，就是要将 public 文件夹下的文件全部部署到我们之前在Nginx配置中设置的 root &#x2F;var&#x2F;www&#x2F;blog 的路径中。</p>
+<h3 id="用rsync部署"><a href="#用rsync部署" class="headerlink" title="用rsync部署"></a>用rsync部署</h3><p>相比较git hook方式，这一种操作更简单，对于小白更不容易出错。</p>
+<h4 id="安装rsync"><a href="#安装rsync" class="headerlink" title="安装rsync"></a>安装rsync</h4><p>rsync的安装分为两部分：服务器端和本地</p>
+<p>服务器端安装：</p>
+<p><code>apt-get install rsync</code></p>
+<p>对于Digital Ocean Ubuntu VPS，大多数的Linux系统已经默认装有 rsync 了，可以运行 rsync 测试下是否已经安装。</p>
+<p>本地安装：</p>
+<p><code>sudo npm install hexo-deployer-rsync --save</code></p>
+<p>rsync配置</p>
+<p>编辑博客文件夹目录下的 <code>_config.yml</code>，找到<code>deploy</code>字段添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: rsync</span><br><span class="line">  host: vps-ip            //这里填写你VPS的IP地址，比如：138.23.23.23</span><br><span class="line">  user: root             //这里填写你登陆VPS所用的用户名，比如：root</span><br><span class="line">  root: /usr/www/blog       //这里填写你在nginx中配置的文件路径</span><br><span class="line">  port: 22               //SSH默认端口号，不需要修改</span><br></pre></td></tr></table></figure>
+<p>配置完毕！在 blog 目录下执行下面一段代码</p>
+<p><code>hexo g &amp;&amp; hexo d</code><br>提示：</p>
+<p>按照提示输入ssh密码后就上传到VPS了，接着在浏览器输入网址就可以看到了。</p>
+<h3 id="git-hook自动部署方案"><a href="#git-hook自动部署方案" class="headerlink" title="git hook自动部署方案"></a>git hook自动部署方案</h3><p>使用git hook和rsync得到的效果是等效的，也就是说，二者中选一种你喜欢的就可以完成配置。<br>说明一下，我本人看Git部署的方式步骤太多太麻烦，所以采用的是rsync的方式进行的，所以对于此文中的Git方式，只是从网络上找到相应的教程，自己并没有进行测试，如果有错漏，请指出。</p>
+<p>安装git</p>
+<p>本地部署工具安装</p>
+<p><code>sudo npm install hexo-deployer-git --save</code></p>
+<p>服务器端安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install git-core</span><br></pre></td></tr></table></figure>
+
+<p>新增一个名为 git 的用户，并给用户 git 赋予无需密码操作的权限（否则到后面 Hexo 部署的时候会提示无权限）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br><span class="line"></span><br><span class="line">chmod 740 /etc/sudoers</span><br><span class="line"></span><br><span class="line">vi /etc/sudoers</span><br></pre></td></tr></table></figure>
+<p>在vi编辑中找到如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## Allow root to run any commands anywhere</span><br><span class="line">root    ALL=(ALL)     ALL</span><br></pre></td></tr></table></figure>
+
+<p>在下面添加一行</p>
+<p><code>git   ALL=(ALL)     ALL</code></p>
+<blockquote>
+<p>vim 操作小贴士：打开文件之后要按i进入编辑模式，编辑完以后按Esc，再输入:wq回车才能保存；如果<br>想不保存直接退出请输入:q!</p>
+</blockquote>
+<p>保存退出后执行</p>
+<p><code>chmod 440 /etc/sudoers</code></p>
+<p>接下来要把本地的 SSH 公钥上传到 VPS 。执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line"></span><br><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">mkdir .ssh &amp;&amp; cd .ssh</span><br><span class="line"></span><br><span class="line">touch authorized_keys</span><br><span class="line"></span><br><span class="line">vi authorized_keys</span><br></pre></td></tr></table></figure>
+<p>现在要打开本地的 Git Bash，输入vi ~&#x2F;.ssh&#x2F;id_rsa.pub，把里面的内容复制下来粘贴到上面打开的文件里。</p>
+<p>然后建立放部署的网页的 Git 库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">mkdir hexo.git &amp;&amp; cd hexo.git</span><br><span class="line"></span><br><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
+<p>测试一下，如果在 Git Bash 中输入 ssh git@VPS的IP地址 能够远程登录的话，则表示设置成功了。</p>
+<p>如果不成功，并且你的 VPS 的 ssh 端口不是 22 的话，请在Git Bash执行vi ~&#x2F;.ssh&#x2F;config，输入以下内容并保存：（成功就跳过这一步）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host #VPS 的 IP</span><br><span class="line">HostName #VPS 的 IP</span><br><span class="line">User git</span><br><span class="line">Port #SSH 端口</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>初始化git仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/repo</span><br><span class="line"></span><br><span class="line">cd /var/repo</span><br><span class="line"></span><br><span class="line">git init --bare blog.git</span><br></pre></td></tr></table></figure>
+<p>执行上述代码后,我们会在 &#x2F;var&#x2F;repo 路径下创建了一个名为 blog.git 的裸仓库，这个仓库的功能就是将我们deploy的文件通过git hook的方式共享到 &#x2F;var&#x2F;www&#x2F;blog 中，而要想实现这一功能我们还需要进行如下配置：</p>
+<p>在 blog.git&#x2F;hooks 目录下新建一个 post-receive 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /var/repo/blog.git/hooks</span><br><span class="line"></span><br><span class="line">vim post-receive</span><br></pre></td></tr></table></figure>
+<p>在 post-receive 中添加如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">git --work-tree=/var/www/blog --git-dir=/var/repo/blog.git checkout -f</span><br></pre></td></tr></table></figure>
+<p>设置 post-receive 文件的可执行权限：</p>
+<p><code>chmod +x post-receive</code></p>
+<p>提示：如果设置的路径文件夹并不存在，那么需要创建该文件夹并且赋予你所使用的用户的权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /var/www/blog</span><br><span class="line">cd /var/www</span><br><span class="line">chown git:git blog</span><br></pre></td></tr></table></figure>
+
+<h4 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h4><p>编辑博客文件夹目录下的 <code>_config.yml</code>，找到<code>deploy</code>添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: root@mylucky.cyou:/var/repo/blog.git # 此部分修改为你自己的登陆账号和域名，冒号后面为设置的裸仓库的地址</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+<p>同样在 blog 目录下执行下面一段代码，我们也可以看到我们的文件部署到了服务器上</p>
+<p><code>hexo g &amp;&amp; hexo d</code></p>
+<p>补充一下，我发现在上面的使用certbot 申请ssl证书的步骤之后，它默认的一个配置是会在直接访问http （80）端口的时候返回404页面，而不是重定向到https，后面我修改了一下nginx的配置，完整配置如下，可以做一个参考：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"># HTTP server block to redirect to HTTPS</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name mylucky.cyou www.mylucky.cyou;</span><br><span class="line">    return 301 https://$server_name$request_uri;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># HTTPS server block</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name mylucky.cyou www.mylucky.cyou;</span><br><span class="line"></span><br><span class="line">    # SSL certificate configuration</span><br><span class="line">    ssl_certificate /etc/letsencrypt/live/www.mylucky.cyou/fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/letsencrypt/live/www.mylucky.cyou/privkey.pem;</span><br><span class="line">    include /etc/letsencrypt/options-ssl-nginx.conf;</span><br><span class="line">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;</span><br><span class="line"></span><br><span class="line">    # Access and error logs</span><br><span class="line">    access_log /var/log/nginx/access.log;</span><br><span class="line">    error_log /var/log/nginx/error.log;</span><br><span class="line"></span><br><span class="line">    # Root directory</span><br><span class="line">    root /var/www/blog;</span><br><span class="line">    index index.html;</span><br><span class="line"></span><br><span class="line">    # Enable gzip compression</span><br><span class="line">    gzip on;</span><br><span class="line"></span><br><span class="line">    # Mime types</span><br><span class="line">    include /etc/nginx/mime.types;</span><br><span class="line"></span><br><span class="line">    # Location blocks</span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files $uri $uri/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~* ^.+\.(css|js|txt|xml|swf|wav)$ &#123;</span><br><span class="line">        access_log off;</span><br><span class="line">        expires 10m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /nginx_status &#123;</span><br><span class="line">        stub_status on;</span><br><span class="line">        access_log off;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>整个一个Hexo的Blog的本地和上传方式到此已经完成，剩下的就是补充Blog的内容了<br>对于Blog来说，平台搭建好其实是最初始的步骤，最关键的还是内容，平台什么的并不重要。<br>后面也会弄一些Hexo的设置和使用方法，来进行填充内容。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://t.me/GetMoeCats">Yeavast</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://mylucky.cyou/post/20231208131919.html">https://mylucky.cyou/post/20231208131919.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://mylucky.cyou" target="_blank">有幸遇见</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a><a class="post-meta__tags" href="/tags/blog/">blog</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/reward.jpeg" target="_blank"><img class="post-qr-code-img" src="/img/reward.jpeg"/></a><div class="post-qr-code-desc"></div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/20231209101919.html" title="收集整理的一些常用命令行"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">收集整理的一些常用命令行</div></div></a></div><div class="next-post pull-right"><a href="/post/20231208104329.html" title="有幸遇见"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">有幸遇见</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/20231209231814.html" title="Hexo永久链接（Permalinks）生成方式比较"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-09</div><div class="title">Hexo永久链接（Permalinks）生成方式比较</div></div></a></div><div><a href="/post/20231215142215.html" title="hexo下使用Typroa编辑图片路径问题的解决"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-15</div><div class="title">hexo下使用Typroa编辑图片路径问题的解决</div></div></a></div><div><a href="/post/20231218094358.html" title="你真的需要hexo吗？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-18</div><div class="title">你真的需要hexo吗？</div></div></a></div><div><a href="/post/20231216124851.html" title="hexo常用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-16</div><div class="title">hexo常用命令</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yeavast</div><div class="author-info__description">遇见就是最大的幸运</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://t.me/GetMoeCats"><i class="fab fa-telegram"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/getsomecat/GetSomeCats" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:cats@lovelucky.xyz" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://t.me/GetMoeCats" rel="external nofollow noreferrer" target="_blank" title="telegram"><i class="fab fa-telegram" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">遇见就是最大的幸运!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%87%86%E5%A4%87%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">需要准备的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95"><span class="toc-number">2.1.</span> <span class="toc-text">创建本地目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-number">2.2.</span> <span class="toc-text">安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">故障排除：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">遇到的问题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS%E7%AB%AF%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">VPS端部署过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6"><span class="toc-number">5.</span> <span class="toc-text">配置SSL证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2Hexo"><span class="toc-number">6.</span> <span class="toc-text">部署Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8rsync%E9%83%A8%E7%BD%B2"><span class="toc-number">6.1.</span> <span class="toc-text">用rsync部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85rsync"><span class="toc-number">6.1.1.</span> <span class="toc-text">安装rsync</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-hook%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88"><span class="toc-number">6.2.</span> <span class="toc-text">git hook自动部署方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE"><span class="toc-number">6.2.1.</span> <span class="toc-text">本地配置</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231219092306.html" title="ZgoCloud Los Angeles Performance VPS - Specials - Starter 简评">ZgoCloud Los Angeles Performance VPS - Specials - Starter 简评</a><time datetime="2023-12-19T01:23:06.000Z" title="发表于 2023-12-19 09:23:06">2023-12-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231218170433.html" title="Saltfish (咸鱼) 美国 SanJose CN2 GIA mini VPS 简评">Saltfish (咸鱼) 美国 SanJose CN2 GIA mini VPS 简评</a><time datetime="2023-12-18T09:04:33.000Z" title="发表于 2023-12-18 17:04:33">2023-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231218105520.html" title="Saltfish(咸鱼)美国SanJose 9929 mini VPS简评">Saltfish(咸鱼)美国SanJose 9929 mini VPS简评</a><time datetime="2023-12-18T02:55:20.000Z" title="发表于 2023-12-18 10:55:20">2023-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231218094358.html" title="你真的需要hexo吗？">你真的需要hexo吗？</a><time datetime="2023-12-18T01:43:58.000Z" title="发表于 2023-12-18 09:43:58">2023-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/20231216124851.html" title="hexo常用命令">hexo常用命令</a><time datetime="2023-12-16T04:48:51.000Z" title="发表于 2023-12-16 12:48:51">2023-12-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yeavast</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const disqus_config = function () {
+    this.page.url = 'https://mylucky.cyou/post/20231208131919.html'
+    this.page.identifier = '/post/20231208131919.html'
+    this.page.title = 'hexo 部署'
+  }
+
+  const disqusReset = () => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addGlobalFn('themeChange', disqusReset, 'disqus')
+
+  const loadDisqus = () =>{
+    if (window.DISQUS) disqusReset()
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://mylucky-cyou.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=mylucky-cyou&api_key=ugtEIeL4LDM8C0Y60VoIaqBYty50woWGc4G6sWFZYZ4GLCzxQo8NpbJgcfi3aanz&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if ('Disqus' === 'Disqus' || !false) {
+    if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
